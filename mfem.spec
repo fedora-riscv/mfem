@@ -188,7 +188,13 @@ echo "skip tests of mfem-openmpi on Fedora 38 i686"
 %ctest -E unit_tests
 %endif
 
-%ifarch x86_64 aarch64 ppc64le
+# https://kojipkgs.fedoraproject.org//work/tasks/6034/102296034/build.log
+%ifarch ppc64le || 0{?fedora} == 38
+echo "skip some tests of mfem-openmpi on Fedora 38 ppc64le"
+%ctest -E 'punit_tests_np=1|psedov_tests_cpu_np=1'
+%endif
+
+%ifarch x86_64 aarch64
 %ctest
 %endif
 %{_openmpi_unload}
