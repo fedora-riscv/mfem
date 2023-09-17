@@ -20,6 +20,8 @@ Source0:        %{url}/archive/v%{version}/%{name}-%{version}.tar.gz
 Patch0:         https://github.com/mfem/mfem/pull/3630.patch
 # Replace deprecated gethostbyname by getaddrinfo
 Patch1:         https://github.com/mfem/mfem/pull/3685.patch
+# fix build error on riscv64
+Patch2:         https://github.com/mfem/mfem/pull/3875.patch
 
 # https://fedoraproject.org/wiki/Changes/EncourageI686LeafRemoval
 ExcludeArch: %{ix86}
